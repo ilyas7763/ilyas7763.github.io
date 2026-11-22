@@ -1,0 +1,6 @@
+(function(){const ID='';const K='cc_choice';let c=null;try{c=localStorage.getItem(K)}catch(e){}
+function ads(){if(!ID||document.getElementById('adsjs'))return;const s=document.createElement('script');s.id='adsjs';s.async=true;s.crossOrigin='anonymous';s.src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client='+ID;document.head.append(s)}
+function set(v){try{localStorage.setItem(K,v)}catch(e){}const b=document.getElementById('cc');if(b)b.remove();if(v==='yes')ads()}
+function show(){if(document.getElementById('cc'))return;const b=document.createElement('div');b.id='cc';b.setAttribute('role','dialog');b.setAttribute('aria-label','Cookie consent');b.innerHTML='<p>We use cookies for ads and analytics. You can accept or reject non-essential cookies. See our <a href="/privacy-policy.html">Privacy Policy</a>.</p><button type="button" id="cy">Accept</button><button type="button" id="cn">Reject</button>';document.body.append(b);document.getElementById('cy').onclick=()=>set('yes');document.getElementById('cn').onclick=()=>set('no')}
+document.addEventListener('DOMContentLoaded',()=>{c?(c==='yes'&&ads()):show();const l=document.getElementById('cset');if(l)l.onclick=e=>{e.preventDefault();try{localStorage.removeItem(K)}catch(x){}show()}})})();
+// To enable ads: set ID above to your AdSense publisher ID, e.g. 'ca-pub-1234567890123456'
